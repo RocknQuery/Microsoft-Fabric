@@ -1,0 +1,179 @@
+table statistics
+	lineageTag: 6f0c9e57-6100-46e8-af53-7645a52ada42
+	sourceLineageTag: [dbo].[statistics]
+
+	column trips_cnt
+		dataType: int64
+		formatString: 0
+		lineageTag: c308d334-b3c1-4b50-b24b-acee106a75fa
+		sourceLineageTag: trips_cnt
+		summarizeBy: sum
+		sourceColumn: trips_cnt
+
+		annotation SummarizationSetBy = Automatic
+
+	column fare_sum
+		dataType: double
+		lineageTag: 739c1390-b878-4f5b-9f3b-d7ba3d1f25a6
+		sourceLineageTag: fare_sum
+		summarizeBy: sum
+		sourceColumn: fare_sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column tip_sum
+		dataType: double
+		lineageTag: 62b96021-8c98-4b71-8c88-dcf2457847d4
+		sourceLineageTag: tip_sum
+		summarizeBy: sum
+		sourceColumn: tip_sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column total_sum
+		dataType: double
+		lineageTag: 2d5b768e-2c04-4de8-95a5-4dd69bdf5d13
+		sourceLineageTag: total_sum
+		summarizeBy: sum
+		sourceColumn: total_sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column distance_sum
+		dataType: double
+		lineageTag: b16092e4-2d7f-430b-bb93-8c5d1da6df43
+		sourceLineageTag: distance_sum
+		summarizeBy: sum
+		sourceColumn: distance_sum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column trips_with_tips_cnt
+		dataType: int64
+		formatString: 0
+		lineageTag: 2366872d-dd00-4049-9e83-603febfe4bb4
+		sourceLineageTag: trips_with_tips_cnt
+		summarizeBy: sum
+		sourceColumn: trips_with_tips_cnt
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: b1823317-b7cf-4d9d-adf7-505110a320e3
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: a0c31add-f97a-40a7-bfcf-f4bfcfc9f032
+		sourceLineageTag: month
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column pm25_sensors
+		dataType: int64
+		formatString: 0
+		lineageTag: a9a5b004-51d8-4365-b749-35d8af11edcb
+		sourceLineageTag: pm25_sensors
+		summarizeBy: sum
+		sourceColumn: pm25_sensors
+
+		annotation SummarizationSetBy = Automatic
+
+	column pm25_avg
+		dataType: double
+		lineageTag: 0186694c-60ae-443a-929e-6f333a175d7c
+		sourceLineageTag: pm25_avg
+		summarizeBy: sum
+		sourceColumn: pm25_avg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pm10_sensors
+		dataType: int64
+		formatString: 0
+		lineageTag: 33ab5dfd-2d26-4ab0-b2ff-9354f603097d
+		sourceLineageTag: pm10_sensors
+		summarizeBy: sum
+		sourceColumn: pm10_sensors
+
+		annotation SummarizationSetBy = Automatic
+
+	column pm10_avg
+		dataType: double
+		lineageTag: 020ca0ab-80a0-4bfc-94cf-9fb515b9cbeb
+		sourceLineageTag: pm10_avg
+		summarizeBy: sum
+		sourceColumn: pm10_avg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pm1_sensors
+		dataType: int64
+		formatString: 0
+		lineageTag: 81cfb61e-59b1-487c-827b-92a24b2ef2c2
+		sourceLineageTag: pm1_sensors
+		summarizeBy: sum
+		sourceColumn: pm1_sensors
+
+		annotation SummarizationSetBy = Automatic
+
+	column pm1_avg
+		dataType: double
+		lineageTag: 32c1c0bc-5a21-47a5-9266-2ff709105e63
+		sourceLineageTag: pm1_avg
+		summarizeBy: sum
+		sourceColumn: pm1_avg
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column usd_eur_rate
+		dataType: double
+		lineageTag: b9f2fafa-98d7-4a5d-b756-55b41c987760
+		sourceLineageTag: usd_eur_rate
+		summarizeBy: sum
+		sourceColumn: usd_eur_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column yearly_gdp
+		dataType: double
+		lineageTag: 143c5622-527e-4feb-8be8-bc77083b08cf
+		sourceLineageTag: yearly_gdp
+		summarizeBy: sum
+		sourceColumn: yearly_gdp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition statistics = entity
+		mode: directLake
+		source
+			entityName: statistics
+			expressionSource: 'DirectLake - Lakehouse'
+
