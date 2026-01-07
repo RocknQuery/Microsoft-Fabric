@@ -1,0 +1,47 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "OpenAQ",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "p_API_Key": {
+      "queryId": "e73f70a5-1887-489d-9742-f445e6b242a4",
+      "queryName": "p_API_Key",
+      "loadEnabled": false
+    },
+    "p_date_from": {
+      "queryId": "072ad763-7393-4e62-a1a6-84497b2d2fb7",
+      "queryName": "p_date_from",
+      "loadEnabled": false
+    },
+    "p_date_to": {
+      "queryId": "b54fc9b7-651e-498c-945c-b93e8ff4fa91",
+      "queryName": "p_date_to",
+      "loadEnabled": false
+    },
+    "OpenAQ Query": {
+      "queryId": "066d454d-45b4-4f56-be17-b16779a569c2",
+      "queryName": "OpenAQ Query",
+      "loadEnabled": false
+    },
+    "OpenAQ Query_DataDestination": {
+      "queryId": "a588ae0b-e209-4b50-9079-fe267c85392f",
+      "queryName": "OpenAQ Query_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://api.openaq.org/",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"cc21940a-4032-4b48-8ca6-be4ff4f74fd1\",\"DatasourceId\":\"a85920ae-ef2f-470a-836f-8f34ba61b384\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"cc21940a-4032-4b48-8ca6-be4ff4f74fd1\",\"DatasourceId\":\"2045cb0e-1fce-4d02-9984-7bb7fdb2f641\"}"
+    }
+  ]
+}

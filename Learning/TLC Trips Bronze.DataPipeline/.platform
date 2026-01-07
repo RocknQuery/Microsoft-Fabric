@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "DataPipeline",
+    "displayName": "TLC Trips Bronze"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "f97c0f24-2908-a516-4fb6-4bc4d1b2746b"
+  }
+}

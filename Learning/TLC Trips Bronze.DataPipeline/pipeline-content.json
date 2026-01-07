@@ -1,0 +1,104 @@
+{
+  "properties": {
+    "activities": [
+      {
+        "type": "ForEach",
+        "typeProperties": {
+          "items": {
+            "value": "@range(1, 12)",
+            "type": "Expression"
+          },
+          "activities": [
+            {
+              "type": "Copy",
+              "typeProperties": {
+                "source": {
+                  "type": "BinarySource",
+                  "formatSettings": {
+                    "type": "BinaryReadSettings"
+                  },
+                  "storeSettings": {
+                    "type": "HttpReadSettings",
+                    "requestMethod": "GET"
+                  },
+                  "datasetSettings": {
+                    "type": "Binary",
+                    "typeProperties": {
+                      "location": {
+                        "type": "HttpServerLocation",
+                        "relativeUrl": {
+                          "value": "@concat('/trip-data/',\n        pipeline().parameters.taxi_type,\n        '_tripdata_',\n        string(pipeline().parameters.year),\n        '-',\n        if(less(item(), 10),\n           concat('0', string(item())),\n           string(item())\n        ),\n        '.parquet'\n)",
+                          "type": "Expression"
+                        }
+                      }
+                    },
+                    "externalReferences": {
+                      "connection": "a640f239-18bd-4487-b723-38cb3831490e"
+                    },
+                    "annotations": []
+                  }
+                },
+                "sink": {
+                  "type": "BinarySink",
+                  "storeSettings": {
+                    "type": "LakehouseWriteSettings"
+                  },
+                  "datasetSettings": {
+                    "type": "Binary",
+                    "typeProperties": {
+                      "location": {
+                        "type": "LakehouseLocation",
+                        "folderPath": {
+                          "value": "@concat('bronze/tlc/',\n        pipeline().parameters.taxi_type,\n        '/',\n        string(pipeline().parameters.year),\n        '/',\n        if(\n          less(item(), 10),\n          concat('0', string(item())),\n          string(item())\n        ),\n        '/'\n)",
+                          "type": "Expression"
+                        }
+                      }
+                    },
+                    "connectionSettings": {
+                      "name": "Lakehouse",
+                      "properties": {
+                        "type": "Lakehouse",
+                        "typeProperties": {
+                          "artifactId": "b5cf2af9-8b13-885b-4ffd-929926ab4736",
+                          "workspaceId": "00000000-0000-0000-0000-000000000000",
+                          "rootFolder": "Files"
+                        },
+                        "externalReferences": {
+                          "connection": "2045cb0e-1fce-4d02-9984-7bb7fdb2f641"
+                        },
+                        "annotations": []
+                      }
+                    },
+                    "annotations": []
+                  }
+                },
+                "enableStaging": false
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Copy TLC Data",
+              "dependsOn": []
+            }
+          ]
+        },
+        "name": "ForEach_Month",
+        "dependsOn": []
+      }
+    ],
+    "parameters": {
+      "taxi_type": {
+        "type": "string",
+        "defaultValue": "green"
+      },
+      "year": {
+        "type": "int",
+        "defaultValue": 2024
+      }
+    }
+  }
+}

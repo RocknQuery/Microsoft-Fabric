@@ -1,0 +1,32 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "ECB rates",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "D USD EUR SP00": {
+      "queryId": "df0211b2-d162-484d-9a5a-c8d64df020a2",
+      "queryName": "D USD EUR SP00",
+      "loadEnabled": false
+    },
+    "D USD EUR SP00_DataDestination": {
+      "queryId": "de8be8fd-f12d-48e6-b7ed-4a06cba216b8",
+      "queryName": "D USD EUR SP00_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"cc21940a-4032-4b48-8ca6-be4ff4f74fd1\",\"DatasourceId\":\"15f03152-fcb6-4b5a-af42-ac391fce35ab\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"cc21940a-4032-4b48-8ca6-be4ff4f74fd1\",\"DatasourceId\":\"2045cb0e-1fce-4d02-9984-7bb7fdb2f641\"}"
+    }
+  ]
+}

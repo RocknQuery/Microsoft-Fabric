@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "ECB Rates Gold"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9eba5469-3a37-917e-491a-efdd2c80c0ee"
+  }
+}
