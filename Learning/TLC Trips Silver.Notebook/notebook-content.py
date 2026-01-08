@@ -23,15 +23,24 @@
 # CELL ********************
 
 from pyspark.sql import functions as F
-
-def col_if_exists(name: str):
-    return F.col(name) if name in merged_df.columns else F.lit(None)
+from pyspark.sql.types import LongType
 
 yellow_df = spark.read.parquet("Files/bronze/tlc/yellow/*/*/*")
 green_df = spark.read.parquet("Files/bronze/tlc/green/*/*/*")
-yellow_df = yellow_df.withColumn("taxi_type", F.lit("yellow"))
-green_df = green_df.withColumn("taxi_type", F.lit("green"))
+yellow_df = (
+    yellow_df
+    .withColumn("taxi_type", F.lit("yellow"))
+    .withColumn("VendorID", F.col("VendorID").cast(LongType()))
+)
+green_df = (
+    green_df
+    .withColumn("taxi_type", F.lit("green"))
+    .withColumn("VendorID", F.col("VendorID").cast(LongType()))
+)
 merged_df = yellow_df.unionByName(green_df, allowMissingColumns=True)
+
+def col_if_exists(name: str):
+    return F.col(name) if name in merged_df.columns else F.lit(None)
 
 pickup_ts = F.coalesce(
     col_if_exists("lpep_pickup_datetime"),
@@ -47,8 +56,7 @@ df_silver = (
     .withColumn("dropoff_datetime", F.to_timestamp(dropoff_ts))
     .withColumn("pickup_date", F.to_date(F.col("pickup_datetime")))
 )
-display(merged_df)
-df_silver.write.format("delta").mode("append").saveAsTable("tlc_trips_silver")
+merged_df.write.format("delta").mode("overwrite").saveAsTable("tlc_trips_silver")
 
 # METADATA ********************
 
