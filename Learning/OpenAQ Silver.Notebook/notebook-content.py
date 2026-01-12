@@ -9,7 +9,7 @@
 # META   "dependencies": {
 # META     "lakehouse": {
 # META       "default_lakehouse": "26ab4736-9299-4ffd-885b-8b13b5cf2af9",
-# META       "default_lakehouse_name": "TLC_Trip_Lakehouse",
+# META       "default_lakehouse_name": "Lakehouse",
 # META       "default_lakehouse_workspace_id": "ddfee769-f6e9-4ae9-b14e-55757d57d7ba",
 # META       "known_lakehouses": [
 # META         {
@@ -48,7 +48,6 @@ silver_df = (
         "percentCoverage"
     )
 )
-display(silver_df)
 silver_df.write.format("delta").mode("overwrite").option("overwriteSchema", "true").saveAsTable("OpenAQ_monthly_silver")
 
 # METADATA ********************
