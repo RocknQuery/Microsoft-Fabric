@@ -5,6 +5,11 @@
   "queryGroups": [],
   "documentLocale": "en-US",
   "queriesMetadata": {
+    "OpenAQ Query": {
+      "queryId": "066d454d-45b4-4f56-be17-b16779a569c2",
+      "queryName": "OpenAQ Query",
+      "loadEnabled": false
+    },
     "p_API_Key": {
       "queryId": "e73f70a5-1887-489d-9742-f445e6b242a4",
       "queryName": "p_API_Key",
@@ -20,13 +25,13 @@
       "queryName": "p_date_to",
       "loadEnabled": false
     },
-    "OpenAQ Query": {
-      "queryId": "066d454d-45b4-4f56-be17-b16779a569c2",
-      "queryName": "OpenAQ Query",
+    "p_max_API_limit": {
+      "queryId": "02a48fbd-aed1-4658-9102-9be43d6b0497",
+      "queryName": "p_max_API_limit",
       "loadEnabled": false
     },
     "OpenAQ Query_DataDestination": {
-      "queryId": "a588ae0b-e209-4b50-9079-fe267c85392f",
+      "queryId": "1f2472e1-4a91-4b82-9559-3fba60da99a4",
       "queryName": "OpenAQ Query_DataDestination",
       "isHidden": true,
       "loadEnabled": false
